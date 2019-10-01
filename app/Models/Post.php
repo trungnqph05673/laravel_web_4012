@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\Post as Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class Post extends Authenticatable
@@ -21,3 +21,5 @@ class Post extends Authenticatable
 
 
 }
+
+?>
