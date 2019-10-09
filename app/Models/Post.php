@@ -16,10 +16,15 @@ class Post extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'users_id', 'content', 
+        'user_id', 'content', 
     ];
 
-
+public function user()
+    {
+        return $this->belongsto(User::class);
+    }
 }
+
+
 
 ?>

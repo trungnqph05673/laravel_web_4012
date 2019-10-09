@@ -26,28 +26,35 @@
 
     </section>
     <!-- /.content -->
+    
+  <a href="{{route('users.create') }}" class="btn btn-success">Create</a>
 
-    @if(empty($posts))
+    @if(empty($users))
       <p>No Data</p>
     @else
       <table class="table">
         <thead>
-          <th>Id</th>
-          <th>Content</th>
           <th>Name</th>
-
-         
+          <th>Email</th>
+          <th>Address</th>
+          <th>Birthday</th>
+          <th>Posts</th>
+          
         </thead>
 
         <tbody>
-          @foreach($posts as $post)
+
+          @foreach($users as $user)
+          
             <tr>
-              <td>{{ $post['id']}}</td>
-              <td>{{ $post['content']}}</td>
-              <td>{{ $post['user']['name']}}</td>
-              <td><a href="#" class="btn btn-primary">Update</a></td>
-              <td><a href="#" class="btn btn-danger">Delete</a></td>
-      
+              <td>{{ $user['name']}}</td>
+              <td>{{ $user['email']}}</td>
+              <td>{{ $user['address']}}</td>
+              <td>{{$user['brithday']}}</td>
+              <td>{{count($user['posts'])}}</td>
+              <td><a href="{{url('users/' . $user->id . '/edit') }}" class="btn btn-primary">Update</a></td>
+
+              <td><a href="{{route('users.delete', ['id' => $user->id])}}" class="btn btn-danger">Delete</a></td>
             </tr>
           @endforeach
         </tbody>
